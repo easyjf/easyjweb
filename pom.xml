@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.easyjf</groupId>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+	<name>EasyJF Parent POM</name>
+	<version>2.0</version>
+	<description>
+		To simplification the java enterprise development is our mission 
+	</description>
+	<url>http://www.easyjf.com</url>
+	<inceptionYear>2005</inceptionYear>
+	<mailingLists>
+		<mailingList>
+			<name>EasyJWeb User List</name>
+			<subscribe>
+				easyjweb-user-subscribe@easyjweb.easyjf.com
+			</subscribe>
+			<unsubscribe>
+				easyjweb-user-unsubscribe@jweb.easyjf.com
+			</unsubscribe>
+			<archive>
+				http://issues.easyjf.com/eyebrowse/SummarizeList?listName=easyjweb-user@jweb.easyjf.com
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>EasyJWeb Developer List</name>
+			<subscribe>
+				easyjweb-dev-subscribe@easyjweb.easyjf.com
+			</subscribe>
+			<unsubscribe>
+				easyjweb-dev-unsubscribe@easyjweb.easyjf.com
+			</unsubscribe>
+			<archive>
+				http://issues.easyjf.com/eyebrowse/SummarizeList?listName=easyjweb-dev@easyjweb.easyjf.com
+			</archive>
+		</mailingList>
+		<mailingList>
+			<name>EasyJWeb Commit List</name>
+			<subscribe>
+				easyjweb-commits-subscribe@easyjweb.easyjf.com
+			</subscribe>
+			<unsubscribe>
+				easyjweb-commits-unsubscribe@easyjweb.easyjf.com
+			</unsubscribe>
+			<archive>
+				http://issues.easyjf.com/eyebrowse/SummarizeList?listName=easyjweb-commits@easyjweb.easyjf.com
+			</archive>
+		</mailingList>
+	</mailingLists>
+	<developers>
+		<developer>
+			<id>daxia</id>
+			<name>Shi You Cai</name>
+			<email>daxia@easyjf.com</email>
+			<url>http://daxia.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>stef_wu</id>
+			<name>Jia Jun Wu</name>
+			<email>stef@easyjf.com</email>
+			<url>http://stef.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>ty</id>
+			<name>Yu Zhang</name>
+			<email>yuzhang@easyjf.com</email>
+			<url>http://yuzhang.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>tianyi</id>
+			<name>Qiang Chen</name>
+			<email>tianyi@easyjf.com</email>
+			<url>http://tianyi.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>netgod</id>
+			<name>Zhan Yuan Du</name>
+			<email>netgod@easyjf.com</email>
+			<url>http://netgod.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+		<developer>
+			<id>William Raym</id>
+			<name>William Raym</name>
+			<email>williamraym@easyjf.com</email>
+			<url>http://wlr.dev.easyjf.com/</url>
+			<organization>Easy Java Framework</organization>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>The EasyJF Software License, Version 0.1</name>
+			<url>
+				http://licenses.easyjf.com/licenses/LICENSE-0.1.txt
+			</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>
+			scm:svn:http://svn.easyjf.com/repository/easyjf/easyjweb/trunk
+		</connection>
+		<developerConnection>
+			scm:svn:https://svn.easyjf.com/repository/easyjf/easyjweb/trunk
+		</developerConnection>
+		<url>
+			http://svn.easyjf.com/repository/easyjf/easyjweb/trunk
+		</url>
+	</scm>
+	<organization>
+		<name>Easy Java Framework</name>
+		<url>http://www.easyjf.com/</url>
+	</organization>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>UTF-8</encoding>
+					<verbose>true</verbose>
+					<showWarnings>false</showWarnings>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>src/core</module>
+		<module>src/ext</module>
+		<module>src/generator</module>
+		<module>src/struts1-plugin</module>
+		<module>src/struts2-plugin</module>
+	</modules>
+	<repositories>
+		<repository>
+			<id>easyjf</id>
+			<name>easyjf</name>
+			<url>http://repo1.easyjf.com/maven2</url>
+		</repository>
+		<repository>
+			<id>ibiblio</id>
+			<name>ibiblio</name>
+			<url>http://www.ibiblio.org/maven2</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>jboss</name>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+	</repositories>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>
+					maven-project-info-reports-plugin
+				</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<configLocation>
+						http://svn.apache.org/repos/asf/struts/maven/trunk/build/struts_checks.xml
+					</configLocation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jxr-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<configuration>
+					<webPassword>password</webPassword>
+					<webUser>user</webUser>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jira-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<inputEncoding>UTF-8</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<configuration>
+					<outputEncoding>UTF-8</outputEncoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+					<outputEncoding>UTF-8</outputEncoding>
+					<dateFormat>yyyy-MM-dd</dateFormat>
+					<scmUrl>${project.scm.url}</scmUrl>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-docck-plugin</artifactId>
+				<configuration>
+					<outputEncoding>UTF-8</outputEncoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+					<outputEncoding>UTF-8</outputEncoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<outputEncoding>UTF-8</outputEncoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<docencoding>UTF-8</docencoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-doap-plugin</artifactId>
+				<configuration>
+					<outputEncoding>UTF-8</outputEncoding>
+					<docencoding>UTF-8</docencoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<configuration>
+					<outputEncoding>UTF-8</outputEncoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<linkXref>true</linkXref>
+					<targetJdk>1.5</targetJdk>
+					<docencoding>UTF-8</docencoding>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+</project>
+

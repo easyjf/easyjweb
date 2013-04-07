@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web>
+<framework-setting>
+		<property name="com.easyjweb.debug">false</property><!--调试模式，每次加载都会重新初始化EasyJWeb-->
+		<property name="com.easyjweb.maxUploadFileSize">51200</property><!--最大上传文件为51200kb-->
+		<property name="com.easyjweb.uploadSizeThreshold">512</property><!--上传文件缓存值-->
+		<property name="com.easyjweb.defaultActionPackages">com.easyjf.core,com.easyjf.security,com.easyjf.necton,com.baijiahui.mvc</property><!--设置自加Action扫描的路径-->
+	</framework-setting>
+	<beans>
+		<!--异常处理Bean，把所有的异常控制都转到error.html这个页面-->
+		<bean name="exceptionHandler"
+			class="com.easyjf.web.exception.DefaultExceptionHandle"
+			scope="singleton">
+			<!--	<property name="errorPage" value="/error.html"/>-->
+		</bean>
+		<!-- 重复提交时的处理Bean -->
+		<bean name="tokenExceptionHandler"
+			class="com.easyjf.web.exception.DefaultTokenVaildExceptionHandler"
+			scope="singleton">
+		</bean>
+		<!--acegi异常处理器，使得acegi的相关异常可以得到正确的处理-->
+		<bean name="acegiException"
+			class="com.easyjf.web.security.acegi.AcegiExceptionHandler" />
+		<bean name="springContainer"
+			class="org.springframework.web.context.support.XmlWebApplicationContext">
+			<property name="configLocations">
+				<list>
+					<value>WEB-INF/classes/application.xml</value>
+				</list>
+			</property>
+		</bean>
+		<bean name="innerSpringContainer"
+			class="com.easyjf.container.impl.SpringContainer">
+			<property name="factory" ref="springContainer" />
+		</bean>
+	</beans>
+</easyjf-web>
+

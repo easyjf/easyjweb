@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="EasyJF" default="usage" basedir="." xmlns:artifact="urn:maven-artifact-ant">
+	<property name="lib.dir" location="${basedir}/src/main/webapp/WEB-INF/lib" />
+	<property name="main.src.dir" location="${basedir}/src/main/java/" />
+	<property name="build.lib.dir" location="${basedir}/bin/lib/build" />
+	<property name="doc.dir" location="${basedir}/doc/" />
+	<property name="web.dir" location="${lib.dir}/../../" />
+	<property name="build.dir" value="${basedir}/terget" />
+	<property name="release.dir" value="${basedir}/target" />
+	<property name="project.provider.name" value="easyjf" />
+	<property name="project.name" value="mini" />
+	<property name="project.author" value="http://www.easyjf.com/" />
+	<property name="project.version" value="1.0" />
+	<property name="project.dist.file" value="${project.name}" />
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${build.lib.dir}/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+	<target name="usage">
+		<echo message="EasyJF Building" />
+		<echo message="-----------------------------------------------" />
+		<echo message="可选编译选项" />
+		<echo message="compile        --&gt; 编译Java源文件" />
+		<echo message="war            --&gt; 生成war包" />
+		<echo message="javadoc        --&gt; 生成API文档" />
+		<echo message="clean          --&gt; 清理已编译的文件" />
+		<input message="请输入一个您要执行的任务，可选择输入参数有：" validargs="compile,war,javadoc,clean" addproperty="ant.task" />
+		<echo message="" />
+		<antcall target="${ant.task}" />
+	</target>
+
+	<target name="initial">
+		<mkdir dir="${basedir}/target" />
+		<mkdir dir="${web.dir}/WEB-INF/classes" />
+		<mkdir dir="${web.dir}/WEB-INF/lib" />
+		<copy todir="${web.dir}/WEB-INF/lib">
+			<fileset dir="${basedir}/src/main/webapp/WEB-INF/lib" />
+		</copy>
+	</target>
+
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+	</path>
+
+	<property name="compiler.args" value="-encoding UTF-8" />
+	<patternset id="compiler.resources">
+		<include name="**/?*.html" />
+		<include name="**/?*.txt" />
+		<include name="**/?*.properties" />
+		<include name="**/?*.xml" />
+		<include name="**/?*.js" />
+	</patternset>
+
+	<target name="compile" depends="initial" description="compile project">
+		<!--<antcall target="maven-jar" />-->
+		<javac destdir="${web.dir}/WEB-INF/classes" fork="true">
+			<compilerarg line="${compiler.args}" />
+			<classpath refid="compile.classpath" />
+			<src path="${main.src.dir}" />
+		</javac>
+		<copy todir="${web.dir}/WEB-INF/classes/">
+			<fileset dir="${main.src.dir}/">
+				<patternset refid="compiler.resources" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="war" depends="clean,compile" description="gen war file">
+		<property name="warfile" value="${release.dir}/${project.dist.file}.war" />
+		<delete file="${warfile}" />
+		<war destfile="${warfile}" webxml="${web.dir}/WEB-INF/web.xml" basedir="${web.dir}" excludes="**/web.xml">
+		<classes dir="${basedir}/src/main/resources/"/>
+			<manifest>
+				<attribute name="Author" value="${project.author}" />
+				<section name="Shared">
+					<attribute name="Vendor" value="${project.author}" />
+					<attribute name="Version" value="${project.version}" />
+				</section>
+
+				<section name="Copyright">
+					<attribute name="Copy" value="(C) ${project.author} 2007" />
+				</section>
+			</manifest>
+		</war>
+	</target>
+
+	<target name="javadoc" description="gen java api document">
+		<javadoc access="public" additionalparam=" -encoding UTF-8 -charset UTF-8 -docencoding UTF-8" author="true" destdir="${doc.dir}" doctitle="Documentation" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="*" source="1.5" sourcepath="${main.src.dir}" splitindex="true" use="true" version="true" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${release.dir}" />
+		<delete dir="${web.dir}/WEB-INF/classes" />
+		<delete dir="${doc.dir}" />
+	</target>
+</project>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Customer管理</title>
+	<link href="/manage/skins/default/stylesheets/main.css" rel="stylesheet" type="text/css" />
+	<link href="/manage/skins/default/stylesheets/pagination.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/javascript/commons.js"></script>
+	<script type="text/javascript" src="/javascript/list.js"></script>
+#macro(orderPic $type)
+#if ($orderBy.equals($type))<img src="$html.url('images/orderby')/${orderType}.gif" style="border:0;width:13px;height:4px;" border="0" />#end
+#end
+</head>
+<body>
+<form id="ListForm"  method="post" action="?cmd=list">
+	<div style="display:none;">
+		<input type="hidden" name="id" value="$!id" />
+		<input type="hidden" name="mulitId" value="$!mulitId" />
+		<input type="hidden" name="pageSize" value="$!pageSize" />
+		<input type="hidden" name="currentPage" value="$!currentPage"/>
+		<input type="hidden" name="orderBy" value="$!orderBy"/>
+		<input type="hidden" name="orderType" value="$!orderType"/>
+	</div>	
+	<table width="100%" border="0" cellspacing="1" cellpadding="0" align="center">
+		<tr>
+			<th colspan="10" style="text-align:center;">Customer管理</th>
+		</tr>
+		<tr>
+			<td class="td2" colspan="10">
+				<div id="application.descriptions">提示:</div>
+			</td>
+		</tr>
+		<tr class="caption">
+			<td colspan="10">
+				<span>&nbsp;&nbsp;查询<b></b></span>
+				<label for="searchbyname">项目:</label>
+				<input size="10" id="searchbyname" type="text" value='$!title' name="title" />
+				<input name="提交" type="submit" class="button" value='查询'/>
+				&nbsp;&nbsp;
+		  </td>
+		</tr>
+		<tr class="caption" style="text-align:center;cursor:pointer;">
+			<td width="26" style="width:26px;cursor:pointer;" onclick="selectInvertion();" ><b>选择</b></td>
+			<td title='按name排序' onclick="return doSort('name');"><b>name#orderPic("name")</b></td>
+			<td title='按linkman排序' onclick="return doSort('linkman');"><b>linkman#orderPic("linkman")</b></td>
+			<td title='按contractNo排序' onclick="return doSort('contractNo');"><b>contractNo#orderPic("contractNo")</b></td>
+			<td title='按contractTime排序' onclick="return doSort('contractTime');"><b>contractTime#orderPic("contractTime")</b></td>
+			<td title='按address排序' onclick="return doSort('address');"><b>address#orderPic("address")</b></td>
+			<td title='按email排序' onclick="return doSort('email');"><b>email#orderPic("email")</b></td>
+			<td title='按homepage排序' onclick="return doSort('homepage');"><b>homepage#orderPic("homepage")</b></td>
+			<td title='按intro排序' onclick="return doSort('intro');"><b>intro#orderPic("intro")</b></td>
+			<td style="width:118px !important;width:80px;text-align:center"><b>操作</b></td>
+		</tr>
+#set ($l=0)
+#foreach ($info in $list)
+#set ($l=1-$l)
+		<tr class="column$!l" onmouseover="return this.style.backgroundColor='#F4F9FC';return false;" onmouseout="return this.style.backgroundColor='#fff';return false;" ondblclick="location.href='?cmd=edit&amp;id=$!info.id';return false;" onclick="return selectOne($!info.id);return false;" title='get("application.edit")'>
+			<td width="26" style="text-align:center;width:26px;cursor:pointer;"><input type="checkbox" name="ids" value="$!info.id" /></td>
+			<td title="$!info.name">$!info.name &nbsp;</td>
+			<td title="$!info.linkman">$!info.linkman &nbsp;</td>
+			<td title="$!info.contractNo">$!info.contractNo &nbsp;</td>
+			<td title="$!info.contractTime">$!info.contractTime &nbsp;</td>
+			<td title="$!info.address">$!info.address &nbsp;</td>
+			<td title="$!info.email">$!info.email &nbsp;</td>
+			<td title="$!info.homepage">$!info.homepage &nbsp;</td>
+			<td title="$!info.intro">$!info.intro &nbsp;</td>
+			<td>
+				<a ondrag="return false;" title="修改该记录" href="?cmd=edit&amp;id=$!info.id">修改</a> &nbsp;
+				<a ondrag="return false;" title="删除记录" href="?cmd=delete&amp;id=$!info.id" onclick="return window.confirm('是否真的要删除程序？');" >删除</a>
+			</td>
+		</tr>
+#end
+#if($!rows>=1)
+		<tr>
+			<td colspan="10" align="center">
+				<!-- pagination start-->
+				<div id="pagination">
+					<ul>
+						<li class="info"><span>记录总数 $!rows 页码 $!page/$!pages $!pageSize 分页 </span></li>
+$!pagination
+					</ul>
+				</div>
+				<!-- pagination over -->
+			</td>
+		</tr>
+#end
+		<tr>
+			<td class="td1" colspan="10">
+				<input class="button" type="button" onclick="return window.location.href='customer.ejf?cmd=add'" value='添加' />
+				<input class="button" type="button" onclick="return selectAll();" value='选择全部' />
+				<input class="button" type="button" onclick="return selectInvertion();" value='反选' />
+				<input class="button" type="button" onclick="return selectNone();" value='不选择' />
+				<input class="button" type="button" onclick="return deleteSelected('batchDelete','真的要删除选中信息?','没有选择任何记录！');" value='删除选择中项' />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<th colspan=2 style="text-align:center;">Customer管理</th>
+		</tr>
+		<tr>
+			<td class="td2" colspan=2>
+			<p>
+				<b>提示：</b><br />
+				<br />
+			</p>
+		</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+

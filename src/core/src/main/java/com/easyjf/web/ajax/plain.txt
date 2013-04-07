@@ -1,0 +1,4 @@
+var json_result={};
+json_result.remoteCallId="$!remoteCallId";
+json_result.error=#if($error)true #else false #end;
+json_result.obj=function(){$!result}();

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+	</form-beans>
+	
+	<action-mappings>		
+		
+		<action path="/*"  scope="request" parameter="cmd">
+			<forward name="list" path="/WEB-INF/views/{1}/list.html"></forward>
+			<forward name="edit" path="/WEB-INF/views/{1}/list.html"></forward>
+			<forward name="success" path="{1}.do" redirect="true"></forward>
+		</action>
+	</action-mappings>
+	
+	<controller>
+		<set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor" />
+	</controller>
+	
+</struts-config>

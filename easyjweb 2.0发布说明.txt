@@ -1,0 +1,57 @@
+　　
+　　今天我们终于可以非常高兴的宣布，EasyJWeb的一个革命性的版本，EasyJWeb 2.0版，于今天对外发布。这个版本，EasyJWeb的重心不再是MVC，而是真正的让Java Web变Easy，通过这个版本，你可以用不到1分钟的时间搭建EJS、SSH、SSH2等应用程序架构，对代码生成模板也作了一些扩充，可以实现生成基于上述三种技术构架的快速应用。
+
+　　EasyJWeb2.0总体结构图 http://www.easyjf.com/easyjweb/easyjweb-framework.jpg 
+　　
+
+　　从2006年发布以来，如今，EasyJWeb已经接近了5个年头。首先我们要感谢国家、感谢政府:-)，祖国的大力支持让我们有机会发布这个新的版本。最后，我们还要感谢以下所有网友对EasyJWeb 2.0的发布所提供的辛勤劳动！
+
+ 　 参与EasyJWeb 1.3开发的成员：大峡、stef、小星星、志在逍遥、CoDingLiFe、天一、ssvfhppl、williamRaym、netgod、冷雨、天意、我为我狂、船长、瞌睡虫.cn、动物园的大猪、abc、阳春白菜、李红军 。。。。。。等等
+
+ 　　为EasyJWeb 1.3的发布提供帮助的成员：云淡风轻、竹雨林风、allen、勇者无惧、Steven Cheng、张凌云、犀鸟、小~0~、?浪(YX.H)、二月、百年ら孤獨、duduwolf、PowerEPU 。。。。。。等等!感谢所有陪伴EasyJWeb成长的朋友友们！
+
+　　EasyJWeb项目是由国内开源团队EasyJF的一级开源项目。是一个以MVC为核心，专注于提供JavaEE应用快速开发的项目。
+
+　　伴随着这个版本的发布，由EasyJF开源团队中其中几名核心成员建立的成都蓝源信息技术有限公司同步发布了基于EasyJWeb框架创建的两个基于GPL的开源项目：
+　　１、蓝源企业应用快速开发平台(http://www.lanyotech.com/lanyo-edp.html)，可以实现基于ExtJS等富客户端的快速企业应用开发。
+　　２、蓝源进销存迷你版(http://www.lanyotech.com/pss.html)基于EasyJWeb、Spring、JPA、ExtJS等技术开发的一个进销存管理系统。 
+　　
+
+EasyJWeb相关资源
+
+EasyJWeb官方网站：http://www.easyjf.com/easyjweb
+EasyJWeb2.0下载地址：http://www.erpwin.com/download.ejf?f=easyjweb-2.0.zip
+EasyJWeb教学视频:http://u.youku.com/easyjf
+EasyJF开源原SVN库:http://svn.easyjf.com/repos/easyjweb/trunk/
+在线演示应用：http://pss.easyjf.com
+基于EasyJWeb的开源项目：蓝源进销存迷你版 http://www.lanyotech.com/pss.html   蓝源企业应用快速开发平台  http://www.lanyotech.com/lanyo-edp.html
+
+ EasyJWeb 2.0快速上手
+
+ 1、在easyjweb下的bin目录执行下面的命令创建一个项目。
+
+easyjweb project d:\test\ejs -ejs -extjs
+
+2、把d:\test\ejs项目导入到eclipse工程中，修改db.properties文件中设置数据库用户名及密码等；
+
+3、在命令行切换到d:\test\ejs\bin目录,执行下面的命令快速生成一个CRUD原型
+
+easyjweb crud myapp.domain.Cat
+
+4、在eclipse中刷新整个ejs项目。然后把该项目的webapp目录作为一个web应用，启动项目即可。
+
+5、成功启动后，在址栏输入http://localhost:8080/cat.ejf 访问生成的应用。
+
+推荐快速上手视频：http://v.youku.com/v_show/id_XMTgwNTQ2NDA4.html   可以看前几分钟即可。
+
+
+EasyJWeb 2.0版本主要更新内容：
+１、增加了struts1-plugin(也就是easyjweb-struts1-support)子项目，用来支持基于struts1.x的应用快速开发；
+２、增加了struts2-plugin子项目，用来支持基于struts2.x的应用快速开发；
+３、调整了Action对于IWebAction接口的限制，Action可以是普通的JavaBean。
+４、在ActionContext中增加了put方法，put进去的内容可以在前台模板中直接引用；
+５、对异常处理作了规范。
+６、JSON生成的功能强化。
+７、完善了EasyJWeb的Schema文件，这样写配置更加简单了。
+
+

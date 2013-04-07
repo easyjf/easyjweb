@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web>
+	<modules>
+    <module name="desktop" path="/desktop" form="" scope="request" action="com.easyjweb.demo.mvc.DesktopAction" defaultPage="list" inject="byType"> 
+    </module>
+##set ($domain = $!domainName.toLowerCase())	
+		<!-- ${domain}Action -->
+		<module name="$domain" path="/$domain" form="" scope="request" action="$!{packageName}.mvc.$!{domainName}Action" defaultPage="list" inject="byType">
+			<page name="list" url="/${domain}/list.html" type="template" />
+			<page name="edit" url="/${domain}/edit.html" type="template" />
+			<page name="preview" url="/${domain}/preview.html" type="template" />
+		</module>
+	</modules>
+</easyjf-web>

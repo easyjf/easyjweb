@@ -1,0 +1,15 @@
+１、在命令行中切换到easyjweb\bin目录。
+２、输入easyjweb project d:\test\ejs -ejs -extjs　会在d盘的test目录建立一个名为ejs的web项目。
+３、切换到d:\test\ejs\bin目录
+４、输入easyjweb crud myapp.domain.Cat可以生成一个针对猫咪管理程序。
+５、检查src\main\resources\db.properties中的数据库配置属性是否与你的实际相符，特别是密码，如果不符则修改。
+６、在命令行执行easyjweb war可以把应用发布成war包。把ejs.war文件拷到tomcat等服务器的webapp目录下也可运行。
+
+７、如果没有装Web服务器，则可以在命令行执行easyjweb run可以自动启动内嵌的web服务器。在地址栏输入http://localhost:82/cat.ejf可以得到结果。
+
+
+EasyJWeb开源项目官方网站：http://www.easyjf.com/easyjweb/
+EasyJWeb开源项目示例：http://easyjweb.demo.easyjf.com/
+
+
+

@@ -1,0 +1,57 @@
+重构后的EasyJWeb Tools辅助代码生成引擎功能及源码
+
+使用方法：
+1、命令行　(已经实现)
+使用格式：java com.easyjf.web.tools.generator.GeneratorTool [-G=]||[-T=] [-XX] <tableName>
+2、Eclipse插件 (正在开发中...)
+
+功能简介：
+1、只要进行合理的设置，可以生成基于任意框架的应用程序，默认生成基于EasyJWeb、EasyDBO的J2EE应用系统；
+2、根据数据表名称，生成包括Domain Bean、动态视图脚本(Velocity及JSP)、DAO层的接口、DAO层接口实现、Service层接口、Service层接口实现等应用代码；
+3、生成基于jUnit的各层单元测试代码；
+4、生成一个完整的应用示例程序；
+5、重新生成部分代码；
+6、自动修改文件中的部分代码；
+
+备注：EasyJF的各项目立足于简化J2EE的应用开发，因此，在基于EasyJWeb快速MVC应用框架中，已经把DAO层的常用功能(对象的添加、修改、删除、查询等操作)移植到了EasyJWeb Tools的业务引擎中。因此，一般的中小型Java Web应用，可以不用考虑单独构建DAO层（在需要特殊自定义功能处除外）。
+
+使用演示：
+1、单独生成功能演示
+//单独生成tableEdit.html
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorWebEditPage Message
+//单独生成tableList.html
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorWebListPage Message
+//单独生成webAction.java
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorWebAction Message
+//单独生成domainBean.java
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorDomainBean Message
+//指定domain Bean的路径
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorDomainBean -package=com.easyjf.example.domain Message
+//指定控制器action的路径，以及domain Bean包路径，生成控制器action
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -G=com.easyjf.web.tools.generator.GeneratorDomainBean -package=com.easyjf.example.action -beanPackage=com.easyjf.example.domain Message
+
+2、使用指定系统类别生成演示
+//下面演示使用系统类别生成,-T=editPage　表示生成tableEdit.html
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -t=editPage -package=com.easyjf.example.domain Message
+
+//使用系统类别生成,-T=listPage　表示生成tableList.html
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -t=listPage  Message
+
+//使用系统类别生成,-T=bean　表示生成Domain Bean,即tableName.java
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -t=bean  Message
+
+//使用系统类别生成,-T=action　表示生成Web控制器Action,即tableNameAction.java
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -t=action  Message
+
+3、生成一个完整的应用程序演示（同时生成多个文件)
+java -cp "../lib/velocity-1.4.jar;../lib/EasyDBO0.5.0.jar;../lib/log4j-1.2.13.jar;../lib/dom4j-1.6.1.jar;../lib/commons-beanutils-core1.7.1.jar;../lib/commons-collections-2.1.1.jar;../lib/commons-dbcp-1.2.1.jar;../lib/commons-pool-1.3.jar;../lib/jaxen.jar;../lib/mysql-connector-java-3.1.12-bin.jar;../webapps/WEB-INF/classes;../lib/jtds-1.2.jar;../lib/junit-3.8.1.jar" com.easyjf.web.tools.generator.GeneratorTool -t=crud  Message
+
+
+EasyJWeb当前开发版本号为0.6.3，提供的打包下载版本是0.6.0，整个项目还处于测试版及不稳定阶段，欢迎广大开源爱好者多提建议。
+本文中所提的内容会随着系统的完善及改进有所改变。
+
+EasyJWeb源码SVN
+http://svn.easyjf.com/repository/easyjf/easyjweb/
+
+《EasyJF协同及版本控制》详细说明
+http://www.easyjf.com/html/20060527/3393419193595177.htm

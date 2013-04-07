@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>用户信息管理</title>
+</head>
+<body>
+<div  align="center">
+ <strong>用户管理系统简介</strong></div>
+<div  align="left">
+  　这是一个非常简单的EasyJWeb示例程序，模拟演示一个用户添加、删除、修改、读取等应用，在进入演示之前请先登录系统。</div>
+<br>
+<div align="center">
+<form action="?cmd=login" method="post">
+    用户名：
+    <input name="name" type="text" id="name" value="$!name" size="15">
+    　密　码：
+    <input name="password" type="password" id="password"  size="15">    
+    <input name="btnSubmit" type="submit" id="btnSubmit" value="登录">
+  #if($msg)
+ <span><font color="#FF0000">${msg} </font></span>
+ #end 
+  </form>
+</div>
+</body>
+</html>

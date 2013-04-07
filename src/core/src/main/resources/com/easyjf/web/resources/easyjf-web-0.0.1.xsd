@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.easyjf.com/schema/easyjf/web" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.easyjf.com/schema/easyjf/web">
+
+	<xsd:element name="easyjf-web" type="easyjf-webType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+			easyjweb configure
+			]]>
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:complexType name="easyjf-webType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="framework-setting" type="framework-settingType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+        		设置错误处理、初始应用、栏截器、其它全局属性。
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="import" type="importType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+
+			<xsd:element name="modules" type="modulesType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+        		定义模块。只可以包含一个modules元素
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="beans" type="beansType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+        		用来定义容器中的Bean。只可以包含一个beans元素
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="forms" type="formsType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+        		webform信息配置
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="pages" type="pageType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+        		全局页面配置
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ajax" type="ajax" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+							配置ajax属性
+						]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="modulesType">
+		<xsd:sequence>
+			<xsd:element name="module" type="moduleType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义一个模块。
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="inject" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="moduleType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="page" minOccurs="0" maxOccurs="unbounded" type="pageType">
+			</xsd:element>
+			<xsd:element name="property" type="propertyType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element name="interceptor" type="interceptorType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="path" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="action" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="defaultPage" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="form" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="scope" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="inject" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="views" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="messageResource" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="validate" type="xsd:boolean"></xsd:attribute>
+		<xsd:attribute name="autoToken" type="xsd:boolean"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="pageType">
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="url" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="contentType" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="propertyType">
+		<xsd:choice minOccurs="0" maxOccurs="1">
+			<xsd:element name="value" minOccurs="0" maxOccurs="1" type="xsd:string">
+			</xsd:element>
+			<xsd:element name="ref" minOccurs="0" maxOccurs="1" type="refType">
+			</xsd:element>
+			<xsd:element name="list" minOccurs="0" maxOccurs="1" type="listType">
+			</xsd:element>
+			<xsd:element name="bean" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="class" type="xsd:string"></xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="value" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="refType">
+		<xsd:sequence>
+			<xsd:element name="value" type="xsd:string" minOccurs="0" maxOccurs="1">
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="value" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="listType">
+		<xsd:sequence>
+			<xsd:element name="value" type="propertyType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="interceptorType">
+		<xsd:attribute name="class" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="beansType">
+		<xsd:sequence>
+			<xsd:element name="bean" type="beanType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义一个一个Bean。
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="beanType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="property" type="propertyType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+			<xsd:element name="constructor-arg" type="propertyType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="class" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="scope" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="inject" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="factory-method" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="framework-settingType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="template-base" type="xsd:string" minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="init-app" type="init-appType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义要初使化的应用。包含类、初使方法、销毁方法
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="interceptors" type="interceptorsType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义栏截器。包含一个子元素app-class
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="error-handler" type="error-handlerType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义错误处理机制
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="property" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="init-appType">
+		<xsd:sequence>
+			<xsd:element name="app-class" type="app-classType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="interceptorsType">
+		<xsd:sequence>
+			<xsd:element name="app-class" type="app-classInterceptorsType">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="error-handlerType">
+		<xsd:sequence>
+			<xsd:element name="app-class" type="app-classErrorHandlerType">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="app-classType">
+		<xsd:attribute name="init-method" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="destroy-method" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="app-classInterceptorsType">
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="method" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="app-classErrorHandlerType">
+		<xsd:attribute name="exception" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="path" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="importType">
+		<xsd:attribute name="resource" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="pagesType">
+		<xsd:sequence>
+			<xsd:element name="module" type="pageType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义一个全局页面。
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="formsType">
+		<xsd:sequence>
+			<xsd:element name="module" type="formType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义一个webform
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="formType">
+		<xsd:sequence>
+			<xsd:element name="property" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="initial" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="notNull" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="size" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+					<xsd:attribute name="event" type="xsd:string"></xsd:attribute>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="bean" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="alertType" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="event" type="xsd:string"></xsd:attribute>
+		<xsd:attribute name="clientValidate" type="xsd:boolean"></xsd:attribute>
+		<xsd:attribute name="serverValidate" type="xsd:boolean"></xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="ajax">
+		<xsd:sequence>
+			<xsd:element name="json-max-depth" type="xsd:string" minOccurs="0" maxOccurs="1">
+			</xsd:element>
+			<xsd:element name="services" type="servicesType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义ajax服务
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="convert" type="convertType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义ajax装换bean
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="signatures" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<![CDATA[
+						定义ajax签名
+        		]]>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="servicesType">
+		<xsd:sequence>
+			<xsd:element name="service" type="serviceType" minOccurs="0" maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="serviceType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="include" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="method" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="exclude" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="method" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string" />
+		<xsd:attribute name="include" type="xsd:string" />
+		<xsd:attribute name="exclude" type="xsd:string" />
+	</xsd:complexType>
+
+	<xsd:complexType name="convertType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="include" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="proerty" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="exclude" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="proerty" type="xsd:string" />
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="name" type="xsd:string" />
+	</xsd:complexType>
+
+</xsd:schema>

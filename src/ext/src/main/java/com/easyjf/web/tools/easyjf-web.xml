@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web xmlns="http://www.easyjf.com/schema/easyjf/web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.easyjf.com/schema/easyjf/web http://www.easyjf.com/schema/easyjf/web/easyjf-web-0.0.1.xsd ">
+	<framework-setting></framework-setting>
+	<modules>		
+		<module path="/easywidget"
+			action="com.easyjf.web.tools.widget.WidgetAction">
+			<page name="calendar"
+				url="classpath:com/easyjf/web/tools/widget/calendar.html"
+				type="template" />
+		</module>	
+	</modules>
+	<beans>
+	<bean name="RC" class="com.easyjf.web.components.RichComponentUtil"/>
+	</beans>
+</easyjf-web>

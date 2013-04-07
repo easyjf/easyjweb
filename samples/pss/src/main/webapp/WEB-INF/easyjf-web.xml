@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web xmlns="http://www.easyjf.com/schema/easyjf/web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.easyjf.com/schema/easyjf/web http://www.easyjf.com/schema/easyjf/web/easyjf-web-0.0.1.xsd ">
+	<framework-setting>
+		<property name="com.easyjweb.debug">false</property><!--调试模式，每次加载都会重新初始化EasyJWeb-->
+		<property name="com.easyjweb.maxUploadFileSize">51200</property><!--最大上传文件为51200kb-->
+		<property name="com.easyjweb.uploadSizeThreshold">512</property><!--上传文件缓存值-->
+	</framework-setting>
+	<import resource="mvc.xml" />
+</easyjf-web>
+

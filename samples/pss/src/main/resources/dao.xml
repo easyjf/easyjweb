@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">  
+  <bean id="clientDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IClientDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Client</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="productDirDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IProductDirDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.ProductDir</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="departmentDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IDepartmentDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Department</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="depotDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IDepotDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Depot</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="employeeDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IEmployeeDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Employee</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="orderInfoDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IOrderInfoDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.OrderInfo</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="productDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IProductDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Product</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="purchaseBillDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IPurchaseBillDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.PurchaseBill</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="stockIncomeDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IStockIncomeDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.StockIncome</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="stockOutcomeDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IStockOutcomeDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.StockOutcome</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="systemDictionaryDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.ISystemDictionaryDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.SystemDictionary</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="systemDictionaryDetailDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.ISystemDictionaryDetailDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.SystemDictionaryDetail</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="productStockDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IProductStockDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.ProductStock</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="supplierDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.ISupplierDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.Supplier</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="stockDetailAccountDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IStockDetailAccountDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.StockDetailAccount</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>  
+  <bean id="baseCountDao" parent="abstractDao"> 
+    <property name="proxyInterfaces"> 
+      <value>com.lanyotech.pps.dao.IBaseCountDAO</value> 
+    </property>  
+    <property name="target"> 
+      <bean parent="baseDAO"> 
+        <constructor-arg> 
+          <value>com.lanyotech.pps.domain.BaseCount</value> 
+        </constructor-arg> 
+      </bean> 
+    </property> 
+  </bean>
+</beans>

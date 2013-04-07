@@ -1,0 +1,67 @@
+
+/*********************分页样式开始*********************/
+/**
+定义所有分页内容显示为粗体字
+*/
+#pagination{
+	clear : both;
+	font-weight : bold;
+}
+
+
+#pagination ul{
+	list-style-type: none;
+	margin-left: -40px !important;
+	margin-left: 0px;
+}
+/**
+定义分页块内 ul 下 li的样式
+*/
+#pagination ul li{
+	float : left;
+	align : left;
+	padding : 2px 4px 2px 4px;
+	border : 1px solid #E6E6E6;
+	cursor : pointer;
+}
+#pagination ul li span input{
+	border:0px;
+	width:14px;
+}
+#pagination ul li span.info{
+	cursor : default;
+}
+#pagination ul li span{
+	cursor : pointer;
+	height:10px;
+}
+
+/**
+定义disabled样式
+*/
+#pagination li.disabled{
+	background-color: #fff;
+    color: #e6e6e6;
+    border: 1px solid #e6e6e6;
+    cursor: default;
+}
+/**
+定义当前页样式
+*/
+#pagination li.currentPage{
+	background-color : #D2EAF6;
+	cursor : default;
+}
+/**
+定义鼠标靠近样式
+*/
+#pagination li.over{
+	background-color : #D2EAF6;
+}
+/**
+定义鼠标离开样式
+*/
+#pagination li.out{
+	background-color : #fff;
+}
+/*********************分页样式结束*********************/

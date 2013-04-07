@@ -1,0 +1,47 @@
+<table width="100%" border="1">
+  <tr>
+    <td align="right">姓名</td>
+    <td>
+      <input name="name" type="text" id="name" value="$!name">   
+      <span><font color="#FF0000"> $!{errors.name}</font></span>
+   </td>
+    </tr>
+	  <tr>
+    <td align="right">密码</td>
+    <td>
+      <input name="password" type="text" id="password" value="$!password">   
+      <span><font color="#FF0000"> $!{errors.password}</font></span>
+   </td>
+    </tr>
+  <tr>
+    <td align="right">性别</td>
+    <td><input type="radio" name="sex" value="man" #if($sex.equals("man"))checked#end>
+男
+  <input type="radio" name="sex" value="women" #if(!$sex.equals("man"))checked#end>
+女 </td>
+    </tr>
+  <tr>
+    <td align="right">邮件</td>
+    <td><input name="email" type="text" id="email" value="$!email">   
+      <span><font color="#FF0000"> $!{errors.email}</font></span></td>
+    </tr>
+  <tr>
+    <td align="right">出生日期</td>
+    <td><input name="bornDate" type="text" id="bornDate" value="$!CommUtil.format($!bornDate)">   
+      <span><font color="#FF0000"> $!{errors.bornDate}</font></span></td>
+    </tr>
+	  <tr>
+    <td align="right">简介</td>
+    <td>
+      <textarea name="intro" cols="50" rows="3" id="intro">$!intro</textarea></td>
+    </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" name="btnSubmit" value="提交">
+     　  
+     <input type="reset" name="btnReset" value="重置">
+    　
+    <input type="button" name="btnReturn" value="返回列表" onClick="location.href='?cmd=list'">
+    </td>
+    </tr>
+</table>

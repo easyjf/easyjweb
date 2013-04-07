@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/easyjweb-core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/easyjweb-ext"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/easyjweb-generator"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/guice-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/acegi-security-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/aspectjweaver-1.5.2a.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-attributes-compiler-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-beanutils-1.6.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-collections-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-dbcp-1.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-digester-1.6.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-fileupload-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-validator-1.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/ehcache-1.2.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/hibernate-3.2.2.ga.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/hibernate-annotations-3.2.1.GA.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/hibernate-entitymanager-3.2.1.GA.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jakarta-oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/javassist-3.3.ga.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jaxen-1.1-beta-4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jboss-archive-browsing-5.0.0alpha-200607201-119.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jta-1.0.1B.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jtds-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/junit-4.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/lucene-core-2.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/persistence-api-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/spring-2.0-rc2.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/spring-aspects-2.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/spring-mock-2.0-rc2.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/derby-10.2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/derbyclient-10.2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/derbynet-10.2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/mysql-connector-java-5.0.5.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-io-1.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-attributes-api-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/servlet-api-2.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/commons-pool-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jetty-6.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/jetty-util-6.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/servlet-api-2.5-6.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/org.mortbay.jmx-5.1.9.jar"/>
+	<classpathentry kind="lib" path="D:/easyjf/easyjweb-1.0/lib/easydbo-0.9.1.jar"/>
+	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
+</classpath>

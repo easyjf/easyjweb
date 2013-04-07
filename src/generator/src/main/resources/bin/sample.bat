@@ -1,0 +1,1 @@
+generator Account domain name:姓名:string:100:string#email:电子邮件:string:100:email#address:地址:string:100:string

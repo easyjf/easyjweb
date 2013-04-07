@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>$!{domainName}管理</title>
+	<link href="manage/skins/default/stylesheets/main.css" rel="stylesheet" type="text/css" />
+	<link href="manage/skins/default/stylesheets/pagination.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="javascript/commons.js"></script>
+	<script type="text/javascript" src="javascript/list.js"></script>
+##set ($domain = $!domainName.toLowerCase())
+\#macro(orderPic $type)
+\#if ($orderBy.equals($type))<img src="$html.url('images/orderby')/${orderType}.gif" style="border:0;width:13px;height:4px;" border="0" />\#end
+\#end
+</head>
+<body>
+<form id="ListForm"  method="post" action="?cmd=list">
+	<div style="display:none;">
+		<input type="hidden" name="$!{idName}" value="$!$!{idName}" />
+		<input type="hidden" name="mulitId" value="$\!mulitId" />
+		<input type="hidden" name="pageSize" value="$\!pageSize" />
+		<input type="hidden" name="currentPage" value="$\!currentPage"/>
+		<input type="hidden" name="orderBy" value="$\!orderBy"/>
+		<input type="hidden" name="orderType" value="$\!orderType"/>
+	</div>	
+	<table width="100%" border="0" cellspacing="1" cellpadding="0" align="center">
+		<tr>
+			<th colspan="#set ($columnSize=($fields.size()+2))$columnSize" style="text-align:center;">$!{domainName}管理</th>
+		</tr>
+		<tr>
+			<td class="td2" colspan="#set ($columnSize=($fields.size()+2))$columnSize">
+				<div id="application.descriptions">提示:</div>
+			</td>
+		</tr>
+		<tr class="caption">
+			<td colspan="#set ($columnSize=($fields.size()+2))$columnSize">
+				<span>&nbsp;&nbsp;查询<b></b></span>
+				<label for="searchbyname">项目:</label>
+				<input size="10" id="searchbyname" type="text" value='$\!title' name="title" />
+				<input name="提交" type="submit" class="button" value='查询'/>
+				&nbsp;&nbsp;
+		  </td>
+		</tr>
+		<tr class="caption" style="text-align:center;cursor:pointer;">
+			<td width="26" style="width:26px;cursor:pointer;" onclick="selectInvertion();" ><b>选择</b></td>
+#foreach ( $field in $!fields )
+			<td title='按${field.lable}排序' onclick="return doSort('$field.name');"><b>$!{field.lable}#orderPic("$!{field.name}")</b></td>
+#end
+			<td style="width:118px !important;width:80px;text-align:center"><b>操作</b></td>
+		</tr>
+\#set ($l=0)
+\#foreach ($info in $list)
+\#set ($l=1-$l)
+		<tr class="column$\!l" onmouseover="return this.style.backgroundColor='#F4F9FC';return false;" onmouseout="return this.style.backgroundColor='#fff';return false;" ondblclick="location.href='?cmd=edit&amp;id=$\!info.$!{id.toLowerCase()}';return false;" onclick="return selectOne($\!info.$!{id.toLowerCase()});return false;" title='get("application.edit")'>
+			<td width="26" style="text-align:center;width:26px;cursor:pointer;"><input type="checkbox" name="ids" value="$\!info.$!{id.toLowerCase()}" /></td>
+#foreach($field in $!fields)
+			<td title="$\!info.$!{field.name}">$\!info.$!{field.name} &nbsp;</td>
+#end
+			<td>
+				<a ondrag="return false;" title="修改该记录" href="?cmd=edit&amp;$!{idName}=$\!info.$!{id.toLowerCase()}">修改</a> &nbsp;
+				<a ondrag="return false;" title="删除记录" href="?cmd=delete&amp;$!{idName}=$\!info.$!{id.toLowerCase()}" onclick="return window.confirm('是否真的要删除记录？');" >删除</a>
+			</td>
+		</tr>
+\#end
+\#if($\!rows>=1)
+		<tr>
+			<td colspan="#set ($columnSize=($fields.size()+2))$columnSize" align="center">
+				<!-- pagination start-->
+				<div id="pagination">
+					<ul>
+						<li class="info"><span>记录总数 $\!rows 页码 $\!page/$\!pages $\!pageSize 分页 </span></li>
+$\!pagination
+					</ul>
+				</div>
+				<!-- pagination over -->
+			</td>
+		</tr>
+\#end
+		<tr>
+			<td class="td1" colspan="#set ($columnSize=($fields.size()+2))$columnSize">
+				<input class="button" type="button" onclick="return window.location.href='?cmd=add'" value='添加' />
+				<input class="button" type="button" onclick="return selectAll();" value='选择全部' />
+				<input class="button" type="button" onclick="return selectInvertion();" value='反选' />
+				<input class="button" type="button" onclick="return selectNone();" value='不选择' />
+				<input class="button" type="button" onclick="return deleteSelected('batchDelete','真的要删除选中信息?','没有选择任何记录！');" value='删除选择中项' />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<th colspan=2 style="text-align:center;">$!{domainName}管理</th>
+		</tr>
+		<tr>
+			<td class="td2" colspan=2>
+			<p>
+				<b>提示：</b><br />
+				<br />
+			</p>
+		</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+

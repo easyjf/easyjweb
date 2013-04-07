@@ -1,0 +1,21 @@
+		body{
+			font: normal 14px '宋体', '新宋体', Simsun, Arial, verdana, sans-serif, 'Lucida Grande', 'Lucida Sans Unicode';
+		}
+		#contents{
+			
+		}
+		#thetitle h1{
+			font-weight:bold;
+		}
+		#thetitle .text{
+			font-size:12px;
+		}
+		#summary{
+			border:1px solid #efefef;
+			padding:10px;
+			background:#fff;
+		}
+		#maincontent{
+			background:#F7FFFF;
+		
+		}

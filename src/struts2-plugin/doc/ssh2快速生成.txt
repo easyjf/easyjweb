@@ -1,0 +1,24 @@
+生成基于struts2的快速应用
+
+
+easyjweb\bin目录执行下面的命令生成工程
+
+easyjweb project d:\test\ssh2 -ssh2 -extjs
+
+然后把生成的项目导入eclipse中，命令行切换到d:\test\ssh2\bin，执行下面的命令
+
+easyjweb crud myapp.domain.Cat
+
+在eclipse中刷新项目
+
+
+修改db.properties中的数据库配置
+
+
+然后在web项目中启动ssh2项目
+
+
+在浏览中输入
+http://localhost:8080/cat.action或者http://localhost:8080/cat
+
+生成的代码myapp.mvc.CatAction

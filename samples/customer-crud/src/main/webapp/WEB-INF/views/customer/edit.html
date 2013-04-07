@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Customer管理</title>
+	<link href="/manage/skins/default/stylesheets/main.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/javascript/commons.js"></script>
+	<script type="text/javascript">
+		function init(){
+			
+		}
+		COMMON.addLoadEvent(init);
+		COMMON.addLoadEvent(COMMON.windowInit);
+	</script></head>
+<body>
+	<form id="EditForm" method="post" action="?cmd#if($id && !$id.equals(""))=update#else=create#end">
+		<!--start hidde the input area-->
+		<div style="display:block;">
+			<input type="hidden" name="id" value="$!id" />
+		</div>
+		<!--end of hidde input area-->
+		
+		<table width="100%" border="0" cellspacing="1" cellpadding="0" align="center">
+			<tr>
+				<th colspan="3" style="text-align:center;">Customer信息录入</th>
+			</tr>
+			<tr>
+			<td width="100%" class="td2" colspan="3">
+				<div id="application.description"></div>
+			</td>
+			</tr>
+			<tr class="caption">
+				<td width="23%" align="center" valign="middle"><b>属性</b></td>
+				<td width="43%" align="center" valign="middle"><b>内容</b></td>
+				<td width="33%" align="center" valign="middle"><b>说明</b></td>
+			</tr>
+			<tr class="column1" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">name:</td>
+				<td align="left" valign="middle">
+					<input name="name" size="55" type="text" id="customer_name" value="$!name" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.name )					<div class="errorinfo">$!errors.name</div>
+#else					请输入name
+#end
+				</td>
+			</tr>
+			<tr class="column0" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">linkman:</td>
+				<td align="left" valign="middle">
+					<input name="linkman" size="55" type="text" id="customer_linkman" value="$!linkman" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.linkman )					<div class="errorinfo">$!errors.linkman</div>
+#else					请输入linkman
+#end
+				</td>
+			</tr>
+			<tr class="column1" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">contractNo:</td>
+				<td align="left" valign="middle">
+					<input name="contractNo" size="55" type="text" id="customer_contractNo" value="$!contractNo" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.contractNo )					<div class="errorinfo">$!errors.contractNo</div>
+#else					请输入contractNo
+#end
+				</td>
+			</tr>
+			<tr class="column0" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">contractTime:</td>
+				<td align="left" valign="middle">
+					<input name="contractTime" size="55" type="text" id="customer_contractTime" value="$!contractTime" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.contractTime )					<div class="errorinfo">$!errors.contractTime</div>
+#else					请输入contractTime
+#end
+				</td>
+			</tr>
+			<tr class="column1" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">address:</td>
+				<td align="left" valign="middle">
+					<input name="address" size="55" type="text" id="customer_address" value="$!address" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.address )					<div class="errorinfo">$!errors.address</div>
+#else					请输入address
+#end
+				</td>
+			</tr>
+			<tr class="column0" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">email:</td>
+				<td align="left" valign="middle">
+					<input name="email" size="55" type="text" id="customer_email" value="$!email" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.email )					<div class="errorinfo">$!errors.email</div>
+#else					请输入email
+#end
+				</td>
+			</tr>
+			<tr class="column1" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">homepage:</td>
+				<td align="left" valign="middle">
+					<input name="homepage" size="55" type="text" id="customer_homepage" value="$!homepage" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.homepage )					<div class="errorinfo">$!errors.homepage</div>
+#else					请输入homepage
+#end
+				</td>
+			</tr>
+			<tr class="column0" onmouseover="this.style.backgroundColor='#F4F9FC';return false;" onmouseout="this.style.backgroundColor='#fff';return false;">
+				<td align="right" valign="middle">intro:</td>
+				<td align="left" valign="middle">
+					<input name="intro" size="55" type="text" id="customer_intro" value="$!intro" />
+				</td>
+				<td align="left" valign="middle">
+#if( $!errors.intro )					<div class="errorinfo">$!errors.intro</div>
+#else					请输入intro
+#end
+				</td>
+			</tr>
+			<tr>
+				<td class="td1" colspan="3">
+					<input class="button" type="submit" name="OK" value='保存'  />
+#if($id && !$id.equals(""))	
+					<input class="button" type="button" name="add" value='添加' onclick="location.href='?cmd=add';return false;" />
+					<input class="button"  type="button" name="delete" value='删除' onclick="if(window.confirm('确认是否要删除数据?')){location.href='?cmd=delete&amp;id=$!id';return false;}" />
+#end
+					<input class="button"  type="button" name="returnBack" value='返回列表' onclick="window.location.href='?cmd=list';return false;" />
+				</td>
+			</tr>
+		</table>
+		<br />
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+			<tr>
+				<th width="100%" colspan=2 style="text-align:center;">
+					Customer信息录入</th>
+			</tr>
+			<tr>
+				<td class="td2" colspan=2>
+					<p>
+						<b>提示：</b><br />
+						<br />
+				  </p>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

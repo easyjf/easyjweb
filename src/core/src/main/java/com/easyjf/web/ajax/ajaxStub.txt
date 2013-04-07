@@ -1,0 +1,16 @@
+if (EasyAjax == null) { EasyAjax = {}; }
+
+${scriptName}=function(){};
+
+#foreach($method in $methodList)
+${scriptName}.${method.name}=function(#foreach($p in $method.para) ${p.name}, #end callback,scope)
+{
+var paraTypes=[#foreach($p in $method.para) "${p.type}", #end null];
+var c=callback||function(){};
+if(callback && typeof callback=="function")c={callback:callback,scope:this};
+if(c){
+ c.scope=scope?scope:this;
+}
+EasyAjax._execute("${scriptName}","${method.name}",paraTypes,#foreach($p in $method.para) ${p.name}, #end c);
+}
+#end

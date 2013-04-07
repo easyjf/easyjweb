@@ -1,0 +1,5 @@
+#if($ScriptTagConnectionCallback)
+$ScriptTagConnectionCallback(function(){#if($json)$!json#else return null #end}())
+#else
+function(){#if($json)$!json#else return null #end}()
+#end

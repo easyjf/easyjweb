@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="easyjweb-jsoncrud-default"  extends="json-default">
+       <global-results>
+			<result name="json" type="json">
+				<param name="root">jsonData</param>
+				<param name="ignoreHierarchy">false</param>
+			</result>
+			<result name="list">
+				WEB-INF/views/${#request['actionName']}/list.html
+			</result>
+		</global-results>
+		<action name="*_*" class="{1}Action" method="{2}" />
+    </package>
+    <package name="ejs-json-default"  extends="struts-default">
+      <result-types>
+            <result-type name="json" class="com.easyjf.web.struts2.JSONResult"/>
+      </result-types>
+       <global-results>
+			<result name="json" type="json">
+				<param name="root">jsonData</param>
+			</result>
+			<result name="list" >
+				WEB-INF/views/${#request['actionName']}/list.html
+			</result>
+		</global-results>
+		<action name="*_*" class="{1}Action" method="{2}" />
+    </package>
+</struts>

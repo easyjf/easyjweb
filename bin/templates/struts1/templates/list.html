@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>$!{domainName}管理</title>
+<link rel="stylesheet" type="text/css" href="plugins/extjs/ext-3.2/resources/css/ext-all.css" />
+<script type="text/javascript" src="plugins/extjs/ext-3.2/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="plugins/extjs/ext-3.2/ext-all.js"></script>
+<script type="text/javascript" src="plugins/extjs/ext-3.2/ext-lang-zh_CN.js"></script>
+<script type="text/javascript" src="plugins/extjs/easyjf/core.js"></script>
+<script type="text/javascript">
+	Ext.BLANK_IMAGE_URL = 'plugins/extjs/ext-3.2/resources/images/default/s.gif';
+</script>
+</head>
+#*如果helpMeLayout 为true则生成调试用的layout示例*#
+#set ($helpMeLayout=false)
+<body>
+<div id="loading">
+	<div class="loading-indicator"><img src="images/extanim32.gif" width="32" height="32" style="margin-right:8px;" align="absmiddle"/>Loading...</div>
+</div>
+<script defer="defer" type="text/javascript">
+
+$!{domainName}Panel=Ext.extend(EasyJF.Ext.CrudPanel,{
+	id:"$!{domain}Panel",
+	title:"$!{domainName}管理",
+	baseUrl:"$!{domain}.do",
+	entityIdName:"$!{idName}",
+	createForm:function(){
+	var formPanel=new Ext.form.FormPanel({
+		frame:true,
+		labelWidth:70,
+		labelAlign:'right',
+		defaultType:'textfield',
+                        defaults:{anchor:"-20"},
+                        items:[{xtype:"hidden",name:this.entityIdName},
+#foreach($field in $fields)
+#set($type="textfield")
+#if($field.type&&$field.type.equals("number"))#set ($type="numberfield") #end
+#if($field.type&&$field.type.equals("date"))#set ($type="datefield") #end
+{#if(!$type.equals("textfield"))xtype:"$!type",#end fieldLabel:'$!{field.lable}',name:'$!{field.name}' #if($type.equals("datefield")),format:"Y-m-d" #end }#if( $velocityCount!=$fields.size()),#end
+
+#end
+#if($complexFields),
+#foreach($field in $complexFields)
+this.buildRemoteCombox("$!{field.name}","$!{field.lable}","$!{field.type}.ejf?cmd=list",["id"])#if( $velocityCount!=$complexFields.size()),#end
+
+#end#end	
+	]
+	});
+
+		return formPanel;
+    },
+    createWin:function(){
+    	return this.initWin(438,300,"$!{domainName}管理");
+    },
+    storeMapping:["$!{idName}",#foreach($field in $!fields)#if( $velocityCount!=$fields.size())"$!{field.name}",#else"$!{field.name}"#end#end
+    #if($complexFields),#foreach($field in $!complexFields)#if( $velocityCount!=$complexFields.size())"$!{field.name}",#else"$!{field.name}"#end#end#end
+	],
+	initComponent : function(){
+    this.cm=new Ext.grid.ColumnModel([
+#foreach($field in $!fields)
+{header: "$field.lable", sortable:true,width: 300, dataIndex:"$!{field.name}"}#if( $velocityCount!=$fields.size()),#end
+
+#end
+#if($complexFields),#foreach($field in $!complexFields)
+{header: "$field.lable", sortable:true,width: 300, dataIndex:"$!{field.name}",renderer:this.objectRender("id")}#if( $velocityCount!=$complexFields.size()),#end
+
+#end#end
+        ]);
+	$!{domainName}Panel.superclass.initComponent.call(this);
+}     
+});
+ 
+
+Ext.QuickTips.init();
+Ext.onReady(function(){	
+	var panel=new $!{domainName}Panel();
+	setTimeout(function(){
+        Ext.get('loading').fadeOut({remove:true});
+    }, 300);
+	var viewport = new Ext.Viewport({
+        layout:'fit',
+        items:[panel]
+    });
+	//panel.store.load();
+});
+
+</script>
+</body>
+</html>

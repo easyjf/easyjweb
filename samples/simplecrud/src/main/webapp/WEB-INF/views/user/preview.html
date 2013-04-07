@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>用户信息查看</title>
+</head>
+<body>
+<div>
+  <div align="center">用户详细信息</div>
+</div>
+<div><table width="100%" border="1">
+  <tr>
+    <td align="right">姓名</td>
+    <td><label>
+      $!name
+    </label></td>
+    </tr>
+  <tr>
+    <td align="right">性别</td>
+    <td>
+      #if($sex.equals("man"))男 #else 女 #end </td>
+  </tr>
+  <tr>
+    <td align="right">邮件</td>
+    <td>$!email</td>
+    </tr>
+  <tr>
+    <td height="25" align="right">出生日期</td>
+    <td>$!bornDate</td>
+    </tr>
+	 <tr>
+    <td height="25" align="right">登录次数</td>
+    <td>$!loginTimes</td>
+    </tr>
+	 <tr>
+    <td height="25" align="right">上次登录时间</td>
+    <td>$!lastLoginTime</td>
+    </tr>
+	  <tr>
+    <td align="right">简介</td>
+    <td>$!HtmlUtil.addBr($!intro)</td>
+    </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input name="button1" type="button" id="button1" value="返回" onClick="location.href='?cmd=list'">  </td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

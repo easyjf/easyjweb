@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web xmlns="http://www.easyjf.com/schema/easyjf/web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.easyjf.com/schema/easyjf/web http://www.easyjf.com/schema/easyjf/web/easyjf-web-2.0.xsd ">
+	<modules>
+		<!-- ajax引擎配置-->
+		<module path="/easyajax"
+			action="com.easyjf.web.ajax.AjaxEngineAction">
+			<page name="engine-js"
+				url="classpath:com/easyjf/web/ajax/engine.js" type="template"
+				contentType="js" />
+			<page name="engine-util"
+				url="classpath:com/easyjf/web/ajax/util-js.js" type="template"
+				contentType="js" />
+			<page name="plain"
+				url="classpath:com/easyjf/web/ajax/plain.txt" type="template"
+				contentType="js" />
+			<page name="stub"
+				url="classpath:com/easyjf/web/ajax/ajaxStub.txt" type="template"
+				contentType="js" />
+			<page name="prototype"
+				url="classpath:com/easyjf/web/ajax/prototype.js" type="template"
+				contentType="js" />
+			<page name="rico"
+				url="classpath:com/easyjf/web/ajax/rico.js" type="template"
+				contentType="js" />
+		</module>
+	</modules>
+</easyjf-web>

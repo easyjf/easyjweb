@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">  
+  <bean id="clientService" class="com.lanyotech.pps.service.impl.ClientServiceImpl"> 
+    <property name="clientDao" ref="clientDao"/> 
+  </bean>  
+  <bean id="productDirService" class="com.lanyotech.pps.service.impl.ProductDirServiceImpl"> 
+    <property name="productDirDao" ref="productDirDao"/> 
+  </bean>  
+  <bean id="departmentService" class="com.lanyotech.pps.service.impl.DepartmentServiceImpl"> 
+    <property name="departmentDao" ref="departmentDao"/> 
+  </bean>  
+  <bean id="depotService" class="com.lanyotech.pps.service.impl.DepotServiceImpl"> 
+    <property name="depotDao" ref="depotDao"/> 
+  </bean>  
+  <bean id="employeeService" class="com.lanyotech.pps.service.impl.EmployeeServiceImpl"> 
+    <property name="employeeDao" ref="employeeDao"/> 
+  </bean>  
+  <bean id="orderInfoService" class="com.lanyotech.pps.service.impl.OrderInfoServiceImpl"> 
+    <property name="orderInfoDao" ref="orderInfoDao"/> 
+  </bean>  
+  <bean id="productService" class="com.lanyotech.pps.service.impl.ProductServiceImpl"> 
+    <property name="productDao" ref="productDao"/> 
+  </bean>  
+  <bean id="purchaseBillService" class="com.lanyotech.pps.service.impl.PurchaseBillServiceImpl"> 
+    <property name="purchaseBillDao" ref="purchaseBillDao"/> 
+  </bean>  
+  <bean id="stockIncomeService" class="com.lanyotech.pps.service.impl.StockIncomeServiceImpl"> 
+    <property name="stockIncomeDao" ref="stockIncomeDao"/> 
+  </bean>  
+  <bean id="stockOutcomeService" class="com.lanyotech.pps.service.impl.StockOutcomeServiceImpl"> 
+    <property name="stockOutcomeDao" ref="stockOutcomeDao"/> 
+  </bean>  
+  <bean id="systemDictionaryService" class="com.lanyotech.pps.service.impl.SystemDictionaryServiceImpl"> 
+    <property name="systemDictionaryDao" ref="systemDictionaryDao"/> 
+  </bean>  
+  <bean id="systemDictionaryDetailService" class="com.lanyotech.pps.service.impl.SystemDictionaryDetailServiceImpl"> 
+    <property name="systemDictionaryDetailDao" ref="systemDictionaryDetailDao"/> 
+  </bean>  
+  <bean id="productStockService" class="com.lanyotech.pps.service.impl.ProductStockServiceImpl"> 
+    <property name="productStockDao" ref="productStockDao"/> 
+  </bean>  
+  <bean id="supplierService" class="com.lanyotech.pps.service.impl.SupplierServiceImpl"> 
+    <property name="supplierDao" ref="supplierDao"/> 
+  </bean>  
+  <bean id="stockDetailAccountService" class="com.lanyotech.pps.service.impl.StockDetailAccountServiceImpl"> 
+    <property name="stockDetailAccountDao" ref="stockDetailAccountDao"/> 
+  </bean>  
+  <bean id="baseCountService" class="com.lanyotech.pps.service.impl.BaseCountServiceImpl"> 
+    <property name="baseCountDao" ref="baseCountDao"/> 
+  </bean>
+</beans>

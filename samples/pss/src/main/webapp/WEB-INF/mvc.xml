@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web xmlns="http://www.easyjf.com/schema/easyjf/web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.easyjf.com/schema/easyjf/web http://www.easyjf.com/schema/easyjf/web/easyjf-web-0.0.1.xsd ">
+	<framework-setting>
+		<property name="com.easyjweb.defaultActionPackages">
+			myapp,easyjweb.demo,com.easyjf.demo,com.lanyotech.pps
+		</property><!--设置自加Action扫描的路径，根据你的情况调整-->
+	</framework-setting>
+	<beans>
+		<!--异常处理Bean，把所有的异常控制都转到error.html这个页面-->
+		<bean name="exceptionHandler"
+			class="com.easyjf.web.exception.DefaultExceptionHandle"
+			scope="singleton">
+			<!--	<property name="errorPage" value="/error.html"/>-->
+		</bean>
+		<!-- 重复提交时的处理Bean -->
+		<bean name="tokenExceptionHandler"
+			class="com.easyjf.web.exception.DefaultTokenVaildExceptionHandler"
+			scope="singleton">
+		</bean>
+		<!--acegi异常处理器，使得acegi的相关异常可以得到正确的处理-->
+		<bean name="acegiException"
+			class="com.easyjf.web.security.acegi.AcegiExceptionHandler" />
+		<bean name="springContainer"
+			class="org.springframework.web.context.support.XmlWebApplicationContext">
+			<property name="configLocations">
+				<list>
+					<value>WEB-INF/classes/application.xml</value>
+				</list>
+			</property>
+		</bean>
+		<bean name="innerSpringContainer"
+			class="com.easyjf.container.impl.SpringContainer">
+			<property name="factory" ref="springContainer" />
+		</bean>
+	</beans>
+	<modules>
+		<module path="/clientSimple" action="com.lanyotech.pps.web.ClientSimpleAction"   />
+	</modules>
+</easyjf-web>
+

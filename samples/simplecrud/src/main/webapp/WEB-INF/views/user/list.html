@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>用户信息管理</title>
+</head>
+<body>
+<div>
+  <div align="center">用户信息管理－用户列表</div>
+</div>
+<div>
+<table width="100%" border="1">
+<tr>
+    <td colspan="6"><font size="-1">说明：这是一个简单的添删改查示例，数据保存在内存中，Web服务器重启后数据将丢失!</font></td>
+  </tr>
+  <tr>
+     <td>ID</td>
+    <td>姓名</td>
+    <td>性别</td>
+    <td>邮件</td>
+    <td>出生日期</td> 
+    <td align="center"> <a href="?cmd=add">添加用户</a>&nbsp;<a href="?cmd=logout">退出登录</a></td>
+  </tr>
+  #foreach($info in $list)
+  <tr>
+    <td>$!info.id</td>
+    <td>$!info.name</td>
+    <td>#if($!info.sex.equals("man"))男#else女#end</td>
+    <td>$!info.email</td>
+    <td>$!info.bornDate</td>
+    <td align="center"><a href="?cmd=preview&id=$!info.id">查看</a>　<a href="?cmd=edit&id=$!info.id">修改</a>　<a href="?cmd=delete&id=$!info.id"  onClick="return confirm('删除后不能恢复，是否真要删除！');">删除</a></td>
+  </tr>
+  #end
+</table>
+</div>
+</body>
+</html>

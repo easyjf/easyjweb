@@ -1,0 +1,66 @@
+﻿##set ($domain = $!domainName.toLowerCase())
+#set ($idd = $!id.toLowerCase())
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>$!{domainName}-查看</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+		<meta http-equiv="imagetoolbar" content="false" />
+		<meta http-equiv="content-language" content="UTF-8" />
+		<meta http-equiv="MSThemeCompatible" content="yes" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+		<meta http-equiv="expires" content="-1" />
+		<meta name="mssmarttagspreventparsing" content="true" />
+		<meta name="revisit-after" content="7 days" />
+		<meta name="classification" content="religion" />
+		<meta name="distribution" content="global" />
+		<meta name="rating" content="general" />
+		<meta name="author" content="" />
+		<meta name="publisher" content="" />
+		<meta name="copyright" content="" />
+		<meta name="keywords" content="" />
+		<meta name="robots" content="index,follow" />
+		<meta name="allow-search" content="yes" />
+		<meta name="audience" content="all" />
+		<meta name="dc.language" scheme="rfc1766" content="UTF-8" />
+		<meta name="expires" content="never" />
+		<meta name="abstract" content="abstract of page" />
+		<meta name="security" content="public" />
+$html.easyjweb()
+	</head>
+	<body leftmargin="0" topmargin="0" scroll="no">
+		<div class="center title">
+			$!{domainName}信息查看
+		</div>
+		<div class="preview">
+#foreach($field in $!fields)
+				<ul>
+					<li>
+						<b>$!field.lable: </b> $!$!field.name
+					</li>
+				</ul>
+#end
+				<ul>
+					<li>
+						<input type="button" name="returnBack" value="返回" onclick="window.location.href='/ejf/$!{domain}/list';return false;" />
+					</li>
+				</ul>
+		</div>
+
+		<hr class="line" />
+		<div class="copyright">
+			<span>&copy; 2005-2007 EasyJF 简易JAVA开源框架</span>
+		    <address>
+		    		<a href="http://www.easyjf.com/?refer=easyjweb-0.9.2"><img
+	        src="/images/easyjweb/easyjweb.jpg" border="0" style="border:1px solid #b4c6da;" height="31" width="88"
+	        alt="Powered By EasyJWeb China" /></a>
+		      <a href="http://validator.w3.org/check?uri=referer"><img
+		        src="/images/xhtml1.1/valid-xhtml11.png" border="0" height="31" width="88"
+		        alt="Valid XHTML 1.1!" /></a>
+		    </address>
+		</div>
+	</body>
+</html>
+

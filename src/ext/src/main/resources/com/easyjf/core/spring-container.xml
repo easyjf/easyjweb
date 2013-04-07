@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<easyjf-web xmlns="http://www.easyjf.com/schema/easyjf/web"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.easyjf.com/schema/easyjf/web http://www.easyjf.com/schema/easyjf/web/easyjf-web-0.0.1.xsd ">
+	<beans>
+	<bean name="springContainer"
+			class="org.springframework.web.context.support.XmlWebApplicationContext">
+			<property name="configLocations">
+				<list>
+					<value>WEB-INF/classes/application.xml</value>
+				</list>
+			</property>
+	</bean>
+	<bean name="innerSpringContainer"
+			class="com.easyjf.container.impl.SpringContainer">
+			<property name="factory" ref="springContainer" />
+		</bean>
+	</beans>
+</easyjf-web>
